@@ -1,6 +1,7 @@
-numpy==1.25.0
-pandas==2.0.2
-seaborn==0.12.2
+pandas==1.5.3
 streamlit==1.23.1
-scipy==1.10.1
-scikit-learn==1.2.2
+etna==2.0.0
+path.py
+briefcase
+
+
