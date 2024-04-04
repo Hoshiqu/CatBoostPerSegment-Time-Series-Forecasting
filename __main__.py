@@ -1,23 +1,19 @@
-import os
-import socket
 import sys
-from pathlib import Path
-
 from streamlit.web import cli
 from streamlit.web.cli import configurator_options, main
-
+from pathlib import Path
+import os
+import socket
 
 def is_port_in_use(port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         return s.connect_ex(('localhost', port)) == 0
-
 
 def get_available_port(start_port, max_attempts):
     for port in range(start_port, start_port + max_attempts):
         if not is_port_in_use(port):
             return port
     return None
-
 
 @main.command("runapp")
 @configurator_options
@@ -43,7 +39,6 @@ def run_streamlit_app(**kwargs):
 
     # Run the Streamlit application
     cli._main_run(filename, flag_options=kwargs)
-
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.realpath(__file__)))
